@@ -1,14 +1,26 @@
 import * as React from 'react';
 import { Alert, Button } from 'reactstrap';
+import BigCalendar from 'react-big-calendar';
+
+import { Calendar, External } from './Calendar';
 import './App.scss';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'animate.css/animate.min.css';
-//const logo = require('./logo.svg');
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'fullcalendar/dist/fullcalendar.css';
+import * as moment from 'moment';
+/*
+ const logo = require('./logo.svg');
+ let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k])
+*/
+interface MyType {
+}
 
-class App extends React.Component {
-  render() {
+BigCalendar.momentLocalizer(moment);
+class App extends React.Component<MyType, {}> {
+    render() {
     return (
       <div className="App">
         <div className="App-header">
@@ -34,6 +46,11 @@ class App extends React.Component {
               <Button className="menu-btn border-0 text-dark">
                   <i className="fa fa-bars" />
               </Button>
+          </div>
+
+          <div>
+              <External />
+              <Calendar />
           </div>
       </div>
     );
